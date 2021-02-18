@@ -22,12 +22,10 @@
     :port:
     :user:
 :workers:
-  :worker_base:
-    :event_catcher:
-      :event_catcher_dummy_provider:
-        :poll: 20.seconds
-    :queue_worker_base:
-      :ems_metrics_collector_worker:
-        :ems_metrics_collector_worker_dummy_provider: {}
-      :ems_refresh_worker:
-        :ems_refresh_worker_dummy_provider: {}
+  :ems_metrics_collector_worker_dummy_provider:
+    :inherits_from: ems_metrics_collector_worker
+  :ems_refresh_worker_dummy_provider:
+    :inherits_from: ems_refresh_worker
+  :event_catcher_dummy_provider:
+    :inherits_from: event_catcher
+    :poll: 20.seconds
